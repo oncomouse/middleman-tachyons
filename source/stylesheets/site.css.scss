@@ -1,0 +1,6 @@
+@import "tachyons";
+a {
+	@extend .blue;
+	@extend .no-underline;
+	@extend .underline-hover;
+}

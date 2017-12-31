@@ -1,0 +1,33 @@
+!!! 5
+%html
+	%head{ prefix: "og: http://ogp.me/ns#"}
+		%meta{ charset:"utf-8",  }
+		%meta{ "http-equiv" => "X-UA-Compatible", content:"IE:edge;chrome:1"  }
+		%meta{ name:"viewport", content:"width=device-width, initial-scale=1" }
+		%title= current_page.data.title || "Middleman"
+		%meta{ name: "author", content: "Andrew Pilsch" }
+		/ Open Graph
+		%meta{ property: "og:locale", content: "en_US" }
+		%meta{ property: "og:url", content: "https://oncomouse.github.io/mla18/" }
+		%meta{ property: "og:description", :content=> current_page.data.description || "Site" }
+		%meta{ property: "og:title", content: current_page.data.title || "Middleman" }
+		%meta{ property: "og:site_name", content: "" }
+		%meta{ property: "og:type", content: "website" }
+		%meta{ property: "og:image", content: "https://s3.amazonaws.com/pilschwebimage/me.png" }
+		%meta{ property: "og:image:width", content: "500" }
+		%meta{ property: "og:image:height", content: "500" }
+		/ Twitter Card
+		%meta{ name: "twitter:card", content: "summary_large_image" }
+		%meta{ name: "twitter:creator", content: "@oncomouse" }
+		%meta{ name: "twitter:description", :content=> current_page.data.description || "Site" }
+		%meta{ name: "twitter:title", content: (current_page.data.title || "Middleman").gsub(/[_*]/,"") }
+		%meta{ name: "twitter:image:src", content: "https://s3.amazonaws.com/pilschwebimage/me.png" }
+		/ CSS
+		= stylesheet_link_tag "site"
+	%body.f4.lh-copy
+		%header.w-100.w-70-ns.center
+			= partial "partials/header"
+		%main.w-100.w-70-ns.center.mh0-ns.mh3
+			= yield
+		%footer.w-100.w-70-ns.center.pv4.ph3.ph5-m.ph6-l.mid-gray.tc.f6
+			= partial "partials/footer"
